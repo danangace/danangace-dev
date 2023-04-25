@@ -36,7 +36,7 @@ onUnmounted(() => {
     <div
       :class="[
         'flex justify-start items-center',
-        'px-8 h-16 gap-x-5',
+        'px-8 h-20 gap-x-5',
         'bg-ace-blue-100 text-slate-200',
         isUserScroll && 'inset-0 border-b border-gray-600 backdrop-blur',
         isUserScroll && 'dark:bg-slate-900/80'
