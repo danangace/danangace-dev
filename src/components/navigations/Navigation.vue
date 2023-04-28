@@ -1,5 +1,6 @@
 <script setup>
 import NavLogo from './NavLogo.vue';
+import Toggle from '../atoms/Toggle.vue'
 import { onMounted, onUnmounted, ref } from 'vue'
 
 const isUserScroll = ref(false)
@@ -35,29 +36,34 @@ onUnmounted(() => {
   >
     <div
       :class="[
-        'flex justify-start items-center',
-        'px-8 h-20 gap-x-5',
+        'flex justify-between items-center',
+        'px-8 h-16',
         'bg-ace-blue-100 text-slate-200',
         isUserScroll && 'inset-0 border-b border-gray-600 backdrop-blur',
         isUserScroll && 'dark:bg-slate-900/80'
       ]"
     >
-      <NavLogo />
-      <nav>
-        <ul
-          :class="[
-            'flex justify-start gap-x-5'
-          ]"
-        >
-          <RouterLink
-            v-for="(nav, navIndex) in navLink"
-            class="text-sm text-ace-blue-150 hover:text-ace-blue-400"
-            :key="`nav-${navIndex}`"
-            :to="nav.href">
-            {{ nav.label }}
-          </RouterLink>
-        </ul>
-      </nav>
+      <section class="flex items-center gap-x-5">
+        <NavLogo />
+        <nav>
+          <ul
+            :class="[
+              'flex justify-start gap-x-5'
+            ]"
+          >
+            <RouterLink
+              v-for="(nav, navIndex) in navLink"
+              class="text-sm text-ace-blue-150 hover:text-ace-blue-400"
+              :key="`nav-${navIndex}`"
+              :to="nav.href">
+              {{ nav.label }}
+            </RouterLink>
+          </ul>
+        </nav>
+      </section>
+      <section class="flex items-center">
+        <Toggle />
+      </section>
     </div>
   </header>
 </template>
